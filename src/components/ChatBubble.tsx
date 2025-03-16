@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { MessageSquare } from 'lucide-react';
 
 const ChatBubble = () => {
   useEffect(() => {
@@ -24,21 +23,8 @@ const ChatBubble = () => {
     };
   }, []);
 
-  return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <button
-        onClick={() => {
-          // The external script should handle opening the chat
-          if (window.ktt10 && typeof window.ktt10.open === 'function') {
-            window.ktt10.open();
-          }
-        }}
-        className="bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center"
-      >
-        <MessageSquare className="w-6 h-6" />
-      </button>
-    </div>
-  );
+  // Return null as we don't want to render any UI elements
+  return null;
 };
 
 export default ChatBubble;
