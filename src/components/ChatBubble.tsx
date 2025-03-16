@@ -1,19 +1,39 @@
-
 import React, { useState, useEffect } from 'react';
 import { MessageSquare, X } from 'lucide-react';
 
 const ChatBubble = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
-
+  
   useEffect(() => {
+    // Add the script tags to initialize the chat widget
+    const scriptPlugin = document.createElement('script');
+    scriptPlugin.src = "https://app.chatgptbuilder.io/webchat/plugin.js?v=6";
+    scriptPlugin.async = true;
+    
+    const scriptSetup = document.createElement('script');
+    scriptSetup.text = `ktt10.setup({id:"i8d4NQH0wEeP1Z",accountId:"1305446",color:"#36D6B5"})`;
+    
+    // Add scripts to the document
+    document.body.appendChild(scriptPlugin);
+    scriptPlugin.onload = () => {
+      document.body.appendChild(scriptSetup);
+    };
+    
+    // Show the welcome bubble after 5 seconds
     const timer = setTimeout(() => {
       setIsOpen(true);
     }, 5000);
 
-    return () => clearTimeout(timer);
+    // Cleanup function to remove the scripts when component unmounts
+    return () => {
+      clearTimeout(timer);
+      // We don't remove the scripts since they need to persist for the chat widget
+    };
   }, []);
 
+  // Since the external script will handle the actual chat UI,
+  // we're keeping just the welcome bubble and the chat button
   return (
     <div className="fixed bottom-4 right-4 z-50">
       {!isMinimized && (
@@ -32,26 +52,14 @@ const ChatBubble = () => {
         </div>
       )}
       
-      {isOpen && (
-        <div className="fixed bottom-20 right-4 w-[350px] h-[500px] bg-white rounded-lg shadow-2xl transform transition-all duration-500 animate-fade-up">
-          <div className="absolute -top-2 -right-2 z-10">
-            <button 
-              onClick={() => setIsOpen(false)}
-              className="bg-white rounded-full p-1 shadow-md hover:bg-gray-100"
-            >
-              <X className="w-4 h-4 text-gray-500" />
-            </button>
-          </div>
-          <iframe
-            src="https://app.chatgptbuilder.io/bots/1305446/l/1725999210020"
-            className="w-full h-full rounded-lg"
-            frameBorder="0"
-          />
-        </div>
-      )}
-
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          // The external script should handle opening the chat
+          if (window.ktt10 && typeof window.ktt10.open === 'function') {
+            window.ktt10.open();
+          }
+          setIsOpen(!isOpen);
+        }}
         className="bg-primary hover:bg-primary-dark text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center"
       >
         <MessageSquare className="w-6 h-6" />
