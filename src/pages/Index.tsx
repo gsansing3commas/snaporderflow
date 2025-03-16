@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-react';
+import ChatBubble from '../components/ChatBubble';
 
 const Index = () => {
   return (
@@ -83,6 +83,7 @@ const Index = () => {
           </button>
         </div>
       </section>
+      <ChatBubble />
     </div>
   );
 };
