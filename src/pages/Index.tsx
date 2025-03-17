@@ -19,7 +19,7 @@ const Index = () => {
           <div className="space-y-8 animate-fade-up">
             <h1 className="text-5xl md:text-7xl text-white font-bold leading-tight">
               AI-Powered Order Taking
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white animate-pulse">
+              <span className="block text-3xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white animate-pulse">
                 Streamline Your Customer Experience with Smart, Efficient Service
               </span>
             </h1>
