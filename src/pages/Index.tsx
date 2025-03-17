@@ -20,7 +20,7 @@ const Index = () => {
             <h1 className="text-5xl md:text-7xl text-white font-bold leading-tight">
               AI-Powered Order Taking
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white via-primary to-white animate-pulse">
-                In Any Language
+                Streamline Your Customer Experience with Smart, Efficient Service
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
