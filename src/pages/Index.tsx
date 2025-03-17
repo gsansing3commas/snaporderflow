@@ -22,9 +22,6 @@ const Index = () => {
                 Streamline Your Customer Experience with Smart, Efficient Service
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Transform your customer experience with multilingual AI that never keeps anyone waiting
-            </p>
             <button 
               className="btn-primary group"
               onClick={handlePhoneCall}
