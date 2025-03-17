@@ -14,7 +14,12 @@ const ChatBubble = () => {
         align-items: center !important;
         justify-content: center !important;
         overflow: hidden !important;
-        cursor: pointer !important; /* Ensure cursor shows it's clickable */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 9999;
       }
 
       .ktt10-btn img {
@@ -66,7 +71,7 @@ const ChatBubble = () => {
     const popupDiv = document.createElement('div');
     popupDiv.id = 'custom-popup';
     popupDiv.innerHTML = `
-      <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
+      <span id="custom-popup-text">Click Here for a Discount 💸</span>
       <button id="custom-popup-close">&times;</button>
     `;
     document.body.appendChild(popupDiv);
@@ -90,96 +95,76 @@ const ChatBubble = () => {
         if (typeof window.ktt10 !== 'undefined') {
           console.log('ktt10 object found, setting up chat widget');
           
-          const scriptSetup = document.createElement('script');
-          scriptSetup.innerHTML = `
-            window.ktt10.setup({
-              accountId: "1305446",
-              id: "i8d4NQH0wEeP1Z",
-              color: "#f20707",
-              icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
-              type: "floating"
-            });
-            
-            const popup = document.getElementById('custom-popup');
-            const popupTextEl = document.getElementById('custom-popup-text');
-            const closePopupBtn = document.getElementById('custom-popup-close');
-            
-            function showPopup() {
-              if (popup) popup.style.display = 'flex';
-            }
-            
-            function hidePopup() {
-              if (popup) popup.style.display = 'none';
-            }
-            
-            function initializeTimers() {
-              // Show popup immediately
-              showPopup();
-              
-              console.log('Initializing popup and chat button');
-              
-              // Debug - check if button exists
-              const ktt10Btn = document.querySelector('.ktt10-btn');
-              console.log('ktt10 button found:', !!ktt10Btn);
-              
-              if (ktt10Btn) {
-                // Add direct click event listener to the button for debugging
-                ktt10Btn.addEventListener('click', function() {
-                  console.log('Direct click on ktt10 button');
-                  if (typeof window.ktt10.open === 'function') {
-                    window.ktt10.open();
+          const initScript = document.createElement('script');
+          initScript.innerHTML = `
+            (function() {
+              window.ktt10.setup({
+                accountId: "1305446",
+                id: "i8d4NQH0wEeP1Z",
+                color: "#f20707",
+                icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
+                type: "floating"
+              });
+
+              const popup = document.getElementById('custom-popup');
+              const popupTextEl = document.getElementById('custom-popup-text');
+              const closePopupBtn = document.getElementById('custom-popup-close');
+
+              function showPopup() {
+                popup.style.display = 'flex';
+              }
+
+              function hidePopup() {
+                popup.style.display = 'none';
+              }
+
+              function waitForChatButton(callback) {
+                const observer = new MutationObserver(() => {
+                  const ktt10Btn = document.querySelector('.ktt10-btn');
+                  if (ktt10Btn) {
+                    observer.disconnect();
+                    callback(ktt10Btn);
                   }
                 });
-              }
-            }
-            
-            if (popupTextEl) {
-              popupTextEl.addEventListener('click', () => {
-                console.log('Popup clicked, trying to open chat');
-                const ktt10Btn = document.querySelector('.ktt10-btn');
-                if (ktt10Btn) {
-                  console.log('Found ktt10 button, clicking it');
-                  ktt10Btn.click();
-                } else if (typeof window.ktt10.open === 'function') {
-                  console.log('Using ktt10.open() directly');
-                  window.ktt10.open();
+
+                observer.observe(document.body, { childList: true, subtree: true });
+                
+                // Also check if the button already exists
+                const existingBtn = document.querySelector('.ktt10-btn');
+                if (existingBtn) {
+                  callback(existingBtn);
                 }
+              }
+
+              popupTextEl.addEventListener('click', () => {
+                console.log('Popup clicked, waiting for chat button');
+                waitForChatButton((ktt10Btn) => {
+                  console.log('Chat button found, clicking it');
+                  ktt10Btn.click();
+                });
                 hidePopup();
               });
-            }
-            
-            if (closePopupBtn) {
+
               closePopupBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 hidePopup();
               });
-            }
-            
-            // Run initialization when document is ready
-            if (document.readyState === 'complete') {
-              initializeTimers();
-            } else {
-              window.addEventListener('load', initializeTimers);
-            }
+
+              // Show popup on load
+              window.addEventListener('load', () => {
+                console.log('Window loaded, showing popup');
+                showPopup();
+              });
+              
+              // Also show popup immediately if page is already loaded
+              if (document.readyState === 'complete') {
+                console.log('Document already complete, showing popup immediately');
+                showPopup();
+              }
+            })();
           `;
-          document.body.appendChild(scriptSetup);
-          console.log('Chat widget setup script added');
-          
-          // Add a manual button as fallback
-          const manualButton = document.createElement('button');
-          manualButton.textContent = 'Open Chat';
-          manualButton.style.position = 'fixed';
-          manualButton.style.bottom = '20px';
-          manualButton.style.left = '20px';
-          manualButton.style.zIndex = '9999';
-          manualButton.style.display = 'none'; // Hidden by default
-          manualButton.onclick = () => {
-            console.log('Manual button clicked');
-            if (typeof window.ktt10?.open === 'function') {
-              window.ktt10.open();
-            }
-          };
-          document.body.appendChild(manualButton);
+          document.body.appendChild(initScript);
+          console.log('Chat widget initialization script added');
         } else {
           console.error('Chat widget ktt10 object not available after script load');
         }
