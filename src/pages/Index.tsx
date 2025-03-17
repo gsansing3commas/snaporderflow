@@ -52,16 +52,39 @@ const Index = () => {
               </div>
             </div>
             
-            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
-              <MessageSquare className="w-12 h-12 text-primary mb-6 group-hover:animate-pulse" />
-              <h3 className="text-2xl font-bold mb-4">Instant Order Processing</h3>
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+              <MessageSquare className="w-12 h-12 text-blue-400 mb-6 group-hover:animate-pulse" />
+              <h3 className="text-2xl font-bold mb-2">Instant Order Processing</h3>
+              <div className="h-1 w-12 bg-gradient-to-r from-blue-500 to-cyan-400 mb-4 group-hover:w-20 transition-all duration-500"></div>
               <p className="text-gray-400">Fast, reliable communication for seamless customer interactions</p>
+              <div className="mt-4 flex gap-2">
+                <span className="text-xs px-2 py-1 bg-white/10 rounded-full text-white/70">24/7</span>
+                <span className="text-xs px-2 py-1 bg-white/10 rounded-full text-white/70">Real-time</span>
+                <span className="text-xs px-2 py-1 bg-blue-500/20 rounded-full text-white/70">AI-powered</span>
+              </div>
             </div>
             
-            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
-              <Users className="w-12 h-12 text-primary mb-6 group-hover:animate-bounce" />
-              <h3 className="text-2xl font-bold mb-4">Rush Hour Ready</h3>
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br from-green-500 to-emerald-400 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+              <Users className="w-12 h-12 text-green-400 mb-6 group-hover:animate-bounce" />
+              <h3 className="text-2xl font-bold mb-2">Rush Hour Ready</h3>
+              <div className="h-1 w-12 bg-gradient-to-r from-green-500 to-emerald-400 mb-4 group-hover:w-20 transition-all duration-500"></div>
               <p className="text-gray-400">Handle multiple orders simultaneously with perfect accuracy</p>
+              <div className="mt-4 grid grid-cols-3 gap-2">
+                <div className="text-center">
+                  <span className="text-lg font-bold text-green-400">10x</span>
+                  <p className="text-xs text-white/70">Capacity</p>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-bold text-green-400">99%</span>
+                  <p className="text-xs text-white/70">Accuracy</p>
+                </div>
+                <div className="text-center">
+                  <span className="text-lg font-bold text-green-400">0</span>
+                  <p className="text-xs text-white/70">Burnout</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
