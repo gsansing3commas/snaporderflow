@@ -1,6 +1,20 @@
 
 import React from 'react';
-import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-react';
+import { 
+  Languages, 
+  MessageSquare, 
+  Phone, 
+  Zap, 
+  Globe, 
+  Bot, 
+  Users, 
+  DollarSign, 
+  Clock, 
+  Moon, 
+  ShoppingCart, 
+  Pizza, 
+  HeartHandshake
+} from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
 
 const Index = () => {
@@ -85,6 +99,114 @@ const Index = () => {
                   <p className="text-xs text-white/70">Burnout</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-secondary">
+        <div className="container mx-auto px-4 mb-16">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Why Choose Us</h2>
+            <div className="h-1 w-24 bg-gradient-to-r from-primary to-purple-600 mx-auto"></div>
+            <p className="text-xl text-gray-300 mt-4 max-w-2xl mx-auto">
+              Our AI-powered order system delivers real results for food service businesses
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Cost Savings */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400/20 to-emerald-600/20 flex items-center justify-center">
+                  <DollarSign className="w-10 h-10 text-green-400 group-hover:animate-float" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Cost Savings</h3>
+              <p className="stats-number text-center">35%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Cut order-taking costs with 24/7 bot service</p>
+            </div>
+            
+            {/* Upsell */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400/20 to-red-600/20 flex items-center justify-center">
+                  <Pizza className="w-10 h-10 text-orange-400 group-hover:animate-spin-slow" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Upsell</h3>
+              <p className="stats-number text-center">20%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Increase ticket sizes with smart suggestions</p>
+            </div>
+            
+            {/* Speed */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-600/20 flex items-center justify-center">
+                  <Clock className="w-10 h-10 text-blue-400 group-hover:animate-spin-slow" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Speed</h3>
+              <p className="stats-number text-center">50%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Slash order wait times with instant processing</p>
+            </div>
+            
+            {/* After Hours */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400/20 to-violet-600/20 flex items-center justify-center">
+                  <Moon className="w-10 h-10 text-purple-400 group-hover:animate-float" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">After Hours</h3>
+              <p className="stats-number text-center">80%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Process late-night orders automatically</p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            {/* Rush Hour */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400/20 to-yellow-600/20 flex items-center justify-center">
+                  <ShoppingCart className="w-10 h-10 text-amber-400 group-hover:animate-bounce" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Rush Hour Rescue</h3>
+              <p className="stats-number text-center">10x</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Handle more lunch rush orders at once</p>
+            </div>
+            
+            {/* Abandoned Orders */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400/20 to-cyan-600/20 flex items-center justify-center">
+                  <Bot className="w-10 h-10 text-teal-400 group-hover:animate-float" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Drop-Off Defender</h3>
+              <p className="stats-number text-center">30%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Save abandoned orders with smart nudges</p>
+            </div>
+            
+            {/* Guest Delight */}
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
+              <div className="flex justify-center mb-6">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400/20 to-rose-600/20 flex items-center justify-center">
+                  <HeartHandshake className="w-10 h-10 text-pink-400 group-hover:animate-pulse" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-center">Guest Delight</h3>
+              <p className="stats-number text-center">40%</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Higher satisfaction with accurate ordering</p>
             </div>
           </div>
         </div>
