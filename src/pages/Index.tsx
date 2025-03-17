@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
@@ -37,10 +38,18 @@ const Index = () => {
       <section className="py-24 bg-gradient-to-b from-black to-secondary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
-              <Globe className="w-12 h-12 text-primary mb-6 group-hover:animate-spin" />
-              <h3 className="text-2xl font-bold mb-4">32 Languages</h3>
+            <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+              <div className="absolute -right-4 -top-4 w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all duration-700"></div>
+              <Languages className="w-12 h-12 text-primary mb-6 group-hover:animate-float transition-all duration-700" />
+              <h3 className="text-2xl font-bold mb-2">32 Languages</h3>
+              <div className="h-1 w-12 bg-gradient-to-r from-primary to-purple-600 mb-4 group-hover:w-20 transition-all duration-500"></div>
               <p className="text-gray-400">Real-time translation for orders and communication in any language</p>
+              <div className="mt-4 flex gap-2 flex-wrap">
+                {["EN", "ES", "FR", "ZH", "DE"].map((lang) => (
+                  <span key={lang} className="text-xs px-2 py-1 bg-white/10 rounded-full text-white/70">{lang}</span>
+                ))}
+                <span className="text-xs px-2 py-1 bg-primary/20 rounded-full text-white/70">+27</span>
+              </div>
             </div>
             
             <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
