@@ -3,6 +3,10 @@ import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-
 import ChatBubble from '../components/ChatBubble';
 
 const Index = () => {
+  const handleChatButtonClick = () => {
+    window.open('https://app.chatgptbuilder.io/webchat/?p=1305446&ref=1725999210020', '_blank');
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -21,7 +25,10 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
               Transform your customer experience with multilingual AI that never keeps anyone waiting
             </p>
-            <button className="btn-primary group">
+            <button 
+              className="btn-primary group"
+              onClick={handleChatButtonClick}
+            >
               Experience AI Ordering
               <Bot className="inline-block ml-2 w-5 h-5 group-hover:animate-spin" />
             </button>
