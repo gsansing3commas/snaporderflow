@@ -1,8 +1,15 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const ChatBubble = () => {
+  const initialized = useRef(false);
+
   useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+    
+    console.log('ChatBubble component mounted');
+    
     // Add the style element
     const styleElement = document.createElement('style');
     styleElement.textContent = `
@@ -18,7 +25,7 @@ const ChatBubble = () => {
         bottom: 20px;
         right: 20px;
         border-radius: 50%;
-        cursor: pointer;
+        cursor: pointer !important;
         z-index: 9999;
       }
 
@@ -67,117 +74,177 @@ const ChatBubble = () => {
     `;
     document.head.appendChild(styleElement);
     
-    // Create the custom popup element
-    const popupDiv = document.createElement('div');
-    popupDiv.id = 'custom-popup';
-    popupDiv.innerHTML = `
-      <span id="custom-popup-text">Click Here for a Discount 💸</span>
-      <button id="custom-popup-close">&times;</button>
-    `;
-    document.body.appendChild(popupDiv);
+    // Create popup div if it doesn't exist
+    if (!document.getElementById('custom-popup')) {
+      const popupDiv = document.createElement('div');
+      popupDiv.id = 'custom-popup';
+      popupDiv.innerHTML = `
+        <span id="custom-popup-text">Click Here for a Discount 💸</span>
+        <button id="custom-popup-close">&times;</button>
+      `;
+      document.body.appendChild(popupDiv);
+    }
     
-    // Make sure to remove any existing script tags to avoid duplicates
-    const existingScripts = document.querySelectorAll('script[src*="chatgptbuilder.io"]');
-    existingScripts.forEach(script => script.remove());
+    // Remove any existing script tags to avoid conflicts
+    document.querySelectorAll('script[src*="chatgptbuilder.io"]').forEach(script => {
+      script.remove();
+    });
     
-    // Add the script tag to initialize the chat widget
-    const scriptPlugin = document.createElement('script');
-    scriptPlugin.src = "https://app.chatgptbuilder.io/webchat/plugin.js?v=5";
-    scriptPlugin.async = true;
-    document.body.appendChild(scriptPlugin);
-    
-    // Create script for initialization and popup behavior
-    scriptPlugin.onload = () => {
-      console.log('Chat widget plugin loaded successfully');
+    // Create and add the main script
+    const scriptTag = document.createElement('script');
+    scriptTag.src = 'https://app.chatgptbuilder.io/webchat/plugin.js?v=5';
+    scriptTag.onload = () => {
+      console.log('Chat plugin script loaded');
       
-      // Give a small delay to ensure the ktt10 object is available
+      // Wait a moment to ensure ktt10 is available globally
       setTimeout(() => {
+        // Check if ktt10 is defined in the window object
         if (typeof window.ktt10 !== 'undefined') {
-          console.log('ktt10 object found, setting up chat widget');
+          console.log('ktt10 object is available, setting up chat');
           
-          const initScript = document.createElement('script');
-          initScript.innerHTML = `
-            (function() {
-              window.ktt10.setup({
-                accountId: "1305446",
-                id: "i8d4NQH0wEeP1Z",
-                color: "#f20707",
-                icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
-                type: "floating"
-              });
-
-              const popup = document.getElementById('custom-popup');
-              const popupTextEl = document.getElementById('custom-popup-text');
-              const closePopupBtn = document.getElementById('custom-popup-close');
-
-              function showPopup() {
-                popup.style.display = 'flex';
+          // Set up ktt10
+          window.ktt10.setup({
+            accountId: "1305446",
+            id: "i8d4NQH0wEeP1Z",
+            color: "#f20707",
+            icon: "https://i.ibb.co/pPksxnb/default-chat-icom.png",
+            type: "floating"
+          });
+          
+          // Set up popup behavior
+          const setupPopupBehavior = () => {
+            const popup = document.getElementById('custom-popup');
+            const popupTextEl = document.getElementById('custom-popup-text');
+            const closePopupBtn = document.getElementById('custom-popup-close');
+            
+            if (!popup || !popupTextEl || !closePopupBtn) {
+              console.error('Popup elements not found');
+              return;
+            }
+            
+            // Function to show popup
+            const showPopup = () => {
+              popup.style.display = 'flex';
+              console.log('Showing popup');
+            };
+            
+            // Function to hide popup
+            const hidePopup = () => {
+              popup.style.display = 'none';
+              console.log('Hiding popup');
+            };
+            
+            // Wait for chat button to appear and click it
+            const waitForChatButton = (callback) => {
+              console.log('Waiting for chat button to appear');
+              
+              // Check if button already exists
+              const existingBtn = document.querySelector('.ktt10-btn');
+              if (existingBtn) {
+                console.log('Chat button already exists, executing callback');
+                callback(existingBtn);
+                return;
               }
-
-              function hidePopup() {
-                popup.style.display = 'none';
-              }
-
-              function waitForChatButton(callback) {
-                const observer = new MutationObserver(() => {
-                  const ktt10Btn = document.querySelector('.ktt10-btn');
-                  if (ktt10Btn) {
-                    observer.disconnect();
-                    callback(ktt10Btn);
+              
+              // Set up observer to wait for button
+              const observer = new MutationObserver((mutations) => {
+                for (const mutation of mutations) {
+                  if (mutation.addedNodes.length) {
+                    const ktt10Btn = document.querySelector('.ktt10-btn');
+                    if (ktt10Btn) {
+                      console.log('Chat button found via observer');
+                      observer.disconnect();
+                      callback(ktt10Btn);
+                      return;
+                    }
                   }
-                });
-
-                observer.observe(document.body, { childList: true, subtree: true });
-                
-                // Also check if the button already exists
-                const existingBtn = document.querySelector('.ktt10-btn');
-                if (existingBtn) {
-                  callback(existingBtn);
                 }
-              }
-
-              popupTextEl.addEventListener('click', () => {
-                console.log('Popup clicked, waiting for chat button');
-                waitForChatButton((ktt10Btn) => {
-                  console.log('Chat button found, clicking it');
-                  ktt10Btn.click();
-                });
-                hidePopup();
-              });
-
-              closePopupBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                hidePopup();
-              });
-
-              // Show popup on load
-              window.addEventListener('load', () => {
-                console.log('Window loaded, showing popup');
-                showPopup();
               });
               
-              // Also show popup immediately if page is already loaded
-              if (document.readyState === 'complete') {
-                console.log('Document already complete, showing popup immediately');
-                showPopup();
+              observer.observe(document.body, { childList: true, subtree: true });
+            };
+            
+            // Set up popup text click to open chat
+            popupTextEl.addEventListener('click', () => {
+              console.log('Popup text clicked');
+              waitForChatButton((btn) => {
+                console.log('Clicking chat button');
+                btn.click();
+              });
+              hidePopup();
+            });
+            
+            // Set up close button
+            closePopupBtn.addEventListener('click', (e) => {
+              console.log('Close button clicked');
+              e.stopPropagation();
+              hidePopup();
+            });
+            
+            // Show popup on load or immediately if already loaded
+            if (document.readyState === 'complete') {
+              console.log('Document already loaded, showing popup immediately');
+              showPopup();
+            } else {
+              console.log('Setting up load event for popup');
+              window.addEventListener('load', showPopup);
+            }
+          };
+          
+          // Call setup with a delay to ensure DOM is ready
+          setTimeout(setupPopupBehavior, 1000);
+          
+          // Create a direct button to open chat in case the standard method fails
+          const createDirectButton = () => {
+            setTimeout(() => {
+              // If chat button doesn't exist after 5 seconds, create a fallback
+              if (!document.querySelector('.ktt10-btn')) {
+                console.log('Creating direct access button since chat button not found');
+                
+                const directBtn = document.createElement('button');
+                directBtn.textContent = 'Open Chat';
+                directBtn.style.cssText = `
+                  position: fixed;
+                  bottom: 20px;
+                  right: 100px;
+                  z-index: 10000;
+                  padding: 10px;
+                  background: #f20707;
+                  color: white;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                `;
+                directBtn.onclick = () => {
+                  console.log('Direct button clicked');
+                  if (typeof window.ktt10 !== 'undefined' && typeof window.ktt10.open === 'function') {
+                    window.ktt10.open();
+                  } else {
+                    console.error('ktt10.open is not available');
+                  }
+                };
+                document.body.appendChild(directBtn);
               }
-            })();
-          `;
-          document.body.appendChild(initScript);
-          console.log('Chat widget initialization script added');
+            }, 5000);
+          };
+          
+          // Create direct button if needed
+          createDirectButton();
         } else {
-          console.error('Chat widget ktt10 object not available after script load');
+          console.error('ktt10 object not available after script load');
         }
-      }, 1000); // 1 second delay to ensure everything is loaded properly
+      }, 1500); // Longer delay to ensure ktt10 is available
     };
     
-    // Cleanup function to remove elements when component unmounts
+    document.body.appendChild(scriptTag);
+    
     return () => {
-      // We don't remove the elements since they need to persist
+      console.log('ChatBubble component unmounting');
+      // We don't remove elements since they need to persist
     };
-  }, []);
+  }, []); // Empty dependency array - only run once
 
-  // Return an empty div since all the UI is created via DOM manipulation
+  // Return null as we're creating elements directly in the DOM
   return null;
 };
 
