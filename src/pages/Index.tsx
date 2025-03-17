@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
@@ -36,7 +35,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Features Grid */}
       <section className="py-24 bg-gradient-to-b from-black to-secondary">
         <div className="container mx-auto px-4">
@@ -49,8 +48,8 @@ const Index = () => {
             
             <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
               <MessageSquare className="w-12 h-12 text-primary mb-6 group-hover:animate-pulse" />
-              <h3 className="text-2xl font-bold mb-4">Multi-Channel</h3>
-              <p className="text-gray-400">Seamless integration with chat, SMS, phone, and social media</p>
+              <h3 className="text-2xl font-bold mb-4">Instant Order Processing</h3>
+              <p className="text-gray-400">Fast, reliable communication for seamless customer interactions</p>
             </div>
             
             <div className="glass-card p-8 hover:scale-105 transition-all duration-500 group">
