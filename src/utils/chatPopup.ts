@@ -8,7 +8,7 @@ export const addPopupElement = (): void => {
   const popupDiv = document.createElement('div');
   popupDiv.id = 'custom-popup';
   popupDiv.innerHTML = `
-    <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
+    <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Hi, I'm Rene your virtual server. What can I get started for you?</span>
     <button id="custom-popup-close">&times;</button>
   `;
   document.body.appendChild(popupDiv);
