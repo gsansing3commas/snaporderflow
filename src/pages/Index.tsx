@@ -1,10 +1,11 @@
+
 import React from 'react';
 import { Languages, MessageSquare, Phone, Zap, Globe, Bot, Users } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
 
 const Index = () => {
-  const handleChatButtonClick = () => {
-    window.open('https://app.chatgptbuilder.io/webchat/?p=1305446&ref=1725999210020', '_blank');
+  const handlePhoneCall = () => {
+    window.location.href = 'tel:9122549970';
   };
 
   return (
@@ -27,10 +28,10 @@ const Index = () => {
             </p>
             <button 
               className="btn-primary group"
-              onClick={handleChatButtonClick}
+              onClick={handlePhoneCall}
             >
-              Experience AI Ordering
-              <Bot className="inline-block ml-2 w-5 h-5 group-hover:animate-spin" />
+              Call Us Now
+              <Phone className="inline-block ml-2 w-5 h-5 group-hover:animate-pulse" />
             </button>
           </div>
         </div>
