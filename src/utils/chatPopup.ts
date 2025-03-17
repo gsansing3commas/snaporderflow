@@ -1,3 +1,4 @@
+
 /**
  * Creates and adds the popup element to the document body
  */
@@ -7,7 +8,7 @@ export const addPopupElement = (): void => {
   const popupDiv = document.createElement('div');
   popupDiv.id = 'custom-popup';
   popupDiv.innerHTML = `
-    <span id="custom-popup-text">Click Here for a Discount 💸</span>
+    <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Click Here for a Discount 💸</span>
     <button id="custom-popup-close">&times;</button>
   `;
   document.body.appendChild(popupDiv);
@@ -20,6 +21,8 @@ export const setupPopupBehavior = (): void => {
   const popup = document.getElementById('custom-popup');
   const popupTextEl = document.getElementById('custom-popup-text');
   const closePopupBtn = document.getElementById('custom-popup-close');
+  let chatTimer: number | null = null;
+  let popupTimer: number | null = null;
   
   if (!popup || !popupTextEl || !closePopupBtn) {
     console.error('Popup elements not found');
@@ -52,6 +55,18 @@ export const setupPopupBehavior = (): void => {
     return false;
   };
   
+  // Initialize timers for automated behavior
+  const initializeTimers = () => {
+    if (chatTimer) clearTimeout(chatTimer);
+    if (popupTimer) clearTimeout(popupTimer);
+
+    // Show popup immediately (0 second delay)
+    showPopup();
+
+    const ktt10Btn = document.querySelector('.ktt10-btn');
+    // No auto-click functionality as delay is set to 0
+  };
+  
   // Setup popup text click handler
   popupTextEl.addEventListener('click', () => {
     console.log('Popup text clicked');
@@ -76,6 +91,6 @@ export const setupPopupBehavior = (): void => {
     hidePopup();
   });
   
-  // Show popup after a slight delay
-  setTimeout(showPopup, 1500);
+  // Initialize timers
+  initializeTimers();
 };
