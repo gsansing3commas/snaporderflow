@@ -1,0 +1,82 @@
+
+/**
+ * Creates and adds the popup element to the document body
+ */
+export const addPopupElement = (): void => {
+  if (document.getElementById('custom-popup')) return;
+  
+  const popupDiv = document.createElement('div');
+  popupDiv.id = 'custom-popup';
+  popupDiv.innerHTML = `
+    <span id="custom-popup-text">Click Here for a Discount 💸</span>
+    <button id="custom-popup-close">&times;</button>
+  `;
+  document.body.appendChild(popupDiv);
+};
+
+/**
+ * Sets up the popup behavior with event listeners
+ */
+export const setupPopupBehavior = (): void => {
+  const popup = document.getElementById('custom-popup');
+  const popupTextEl = document.getElementById('custom-popup-text');
+  const closePopupBtn = document.getElementById('custom-popup-close');
+  
+  if (!popup || !popupTextEl || !closePopupBtn) {
+    console.error('Popup elements not found');
+    return;
+  }
+  
+  // Show popup
+  const showPopup = () => {
+    popup.style.display = 'flex';
+    console.log('Showing popup');
+  };
+  
+  // Hide popup
+  const hidePopup = () => {
+    popup.style.display = 'none';
+    console.log('Hiding popup');
+  };
+  
+  // Helper to find and click chat button
+  const findAndClickChatButton = () => {
+    const ktt10Btn = document.querySelector('.ktt10-btn');
+    
+    if (ktt10Btn) {
+      console.log('Chat button found, clicking');
+      ktt10Btn.dispatchEvent(new Event('click'));
+      return true;
+    }
+    
+    console.log('Chat button not found');
+    return false;
+  };
+  
+  // Setup popup text click handler
+  popupTextEl.addEventListener('click', () => {
+    console.log('Popup text clicked');
+    
+    // Try to find and click the button
+    const buttonFound = findAndClickChatButton();
+    
+    if (!buttonFound) {
+      console.log('Button not found, trying direct ktt10.open()');
+      // Try direct API if button not found
+      if (typeof window.ktt10?.open === 'function') {
+        window.ktt10.open();
+      }
+    }
+    
+    hidePopup();
+  });
+  
+  // Setup close button
+  closePopupBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hidePopup();
+  });
+  
+  // Show popup after a slight delay
+  setTimeout(showPopup, 1500);
+};
