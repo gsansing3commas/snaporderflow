@@ -30,7 +30,7 @@ const Index = () => {
               className="btn-primary group"
               onClick={handlePhoneCall}
             >
-              Call Us Now
+              Tap to Try AI Ordering!
               <Phone className="inline-block ml-2 w-5 h-5 group-hover:animate-pulse" />
             </button>
           </div>
