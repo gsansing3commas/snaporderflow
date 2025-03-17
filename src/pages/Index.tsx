@@ -10,7 +10,6 @@ import {
   Users, 
   DollarSign, 
   Clock, 
-  Moon, 
   ShoppingCart, 
   Pizza, 
   HeartHandshake
@@ -155,21 +154,6 @@ const Index = () => {
               <p className="text-gray-300 text-center text-sm mt-2">Slash order wait times with instant processing</p>
             </div>
             
-            {/* After Hours */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-purple-400 to-violet-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-400/20 to-violet-600/20 flex items-center justify-center">
-                  <Moon className="w-10 h-10 text-purple-400 group-hover:animate-float" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">After Hours</h3>
-              <p className="stats-number text-center">80%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Process late-night orders automatically</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
             {/* Rush Hour */}
             <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
               <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
@@ -182,22 +166,11 @@ const Index = () => {
               <p className="stats-number text-center">10x</p>
               <p className="text-gray-300 text-center text-sm mt-2">Handle more lunch rush orders at once</p>
             </div>
-            
-            {/* Abandoned Orders */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-400/20 to-cyan-600/20 flex items-center justify-center">
-                  <Bot className="w-10 h-10 text-teal-400 group-hover:animate-float" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Drop-Off Defender</h3>
-              <p className="stats-number text-center">30%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Save abandoned orders with smart nudges</p>
-            </div>
-            
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 mt-8">
             {/* Guest Delight */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
+            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative max-w-md mx-auto">
               <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400/20 to-rose-600/20 flex items-center justify-center">
