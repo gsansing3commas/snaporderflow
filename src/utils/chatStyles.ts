@@ -1,4 +1,3 @@
-
 /**
  * Utility function to add chat widget styles to the document head
  */

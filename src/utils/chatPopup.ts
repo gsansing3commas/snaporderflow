@@ -1,4 +1,3 @@
-
 /**
  * Creates and adds the popup element to the document body
  */

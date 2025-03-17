@@ -1,4 +1,3 @@
-
 /**
  * Cleans up any existing chat-related elements to avoid conflicts
  */
