@@ -21,6 +21,10 @@ const Index = () => {
     window.location.href = 'tel:9122549970';
   };
 
+  const handleGetStarted = () => {
+    window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
+  };
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -208,7 +212,10 @@ const Index = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
             Ready to Transform Your <br />Customer Experience?
           </h2>
-          <button className="btn-primary text-lg group">
+          <button 
+            className="btn-primary text-lg group"
+            onClick={handleGetStarted}
+          >
             Get Started
             <Zap className="inline-block ml-2 w-5 h-5 group-hover:animate-pulse" />
           </button>
@@ -220,3 +227,4 @@ const Index = () => {
 };
 
 export default Index;
+
