@@ -1,4 +1,3 @@
-
 /**
  * Utility function to add chat widget styles to the document head
  */
@@ -66,6 +65,14 @@ export const addChatStyles = (): void => {
       cursor: pointer;
       padding: 0;
       line-height: 1;
+    }
+    
+    .disclaimer-text {
+      font-size: 10px;
+      color: #8E9196;
+      font-style: italic;
+      margin-top: 4px;
+      line-height: 1.2;
     }
     
     /* Additional Chat Widget Styles */
