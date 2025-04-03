@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Languages, 
@@ -22,7 +21,7 @@ const Index = () => {
   };
 
   const handleGetStarted = () => {
-    window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
+    window.open('https://pymntlink.com/payment-link?token=NTc2NzRjM2MzMWJkYzdkMzFkYzc3ZWU5YzQ0YmRjNzA6OTJlZGMzYjIyYjliYzY0ZTUyZGUwOTBjMGVlOTM4MWQ0NmIwNDY5ZTM3M2NjNTc3ZTBkZTFjNTllNDBhYTBiMjI0MzFhNmYzYjMxMGIwNDcxMTk2ZDM1NTQyOGYxNDcwZDlmNjIwMjllNzE5ZDkwMWZiOTllMjJmMDYwYzhmNDJlZjZmNGQ3MDEyNTY0ZTk0YjRjY2Y2YTI2Njk1YjE5MzhlYmNhMWVhNTJlNzYwMmQ4MzgzYWExNTM3MGY4ODMwZDEyMWFkMjk0MjJlODM1NmRlMjYzNmRiZGYwM2RiNGNmZmU0YWQzNmUyZGRlZDI1MjE4MGRjM2FmOGFkNTFkM2I1MmJlMGFiYTJmNzdjMDA1OTI4NzlhMzk4NGQ1Yjk3ZTY4YjAxNjVjOTBhM2M5YzA5NWIwYTBiMTE3MDBkOGM1ZjNiM2VlZWUwMDVjNTliN2RmOTU1ZWUxZWViODM2OA==', '_blank');
   };
 
   return (
@@ -227,4 +226,3 @@ const Index = () => {
 };
 
 export default Index;
-
