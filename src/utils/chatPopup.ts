@@ -1,4 +1,6 @@
 
+import { setupPopupBehavior } from './chatPopup';
+
 /**
  * Creates and adds the popup element to the document body
  */
@@ -10,7 +12,7 @@ export const addPopupElement = (): void => {
   popupDiv.innerHTML = `
     <div>
       <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Hi, I'm Rene your virtual server. What can I get started for you?</span>
-      <div class="disclaimer-text">Information gathered in this chat will be used to confirm your order and send you a payment link.</div>
+      <div class="disclaimer-text">By providing your phone number, you agree to receive transactional SMS messages, including a payment link, from orderchat.pro</div>
     </div>
     <button id="custom-popup-close">&times;</button>
   `;
