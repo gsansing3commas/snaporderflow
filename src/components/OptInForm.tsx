@@ -34,6 +34,12 @@ export function OptInForm() {
   return (
     <div className="p-6 bg-white/5 backdrop-blur-lg rounded-lg border border-white/10 max-w-md mx-auto">
       <h2 className="text-2xl font-bold text-white mb-4">Get Started Now</h2>
+      <div className="text-sm text-white/80 mb-4">
+        <p className="mb-2">Business Information:</p>
+        <p>OrderChat</p>
+        <p>1130 Kings Cross, Brunswick, GA, 31525</p>
+        <p>303-941-2981</p>
+      </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField
@@ -65,11 +71,15 @@ export function OptInForm() {
                   />
                 </FormControl>
                 <div className="text-sm leading-none text-white">
-                  By checking this box, you agree to receive promotional SMS messages from OrderChat.pro. This is optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.
+                  By checking this box, you agree to receive promotional SMS messages from OrderChat. This is optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.
                 </div>
               </FormItem>
             )}
           />
+          
+          <div className="text-xs text-white/60 mt-2">
+            OrderChat will use the information you provide on this form to be in touch with you and to provide updates and marketing. By submitting this form, you consent to receiving SMS messages from OrderChat at the number provided.
+          </div>
           
           <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
             Submit
