@@ -10,7 +10,7 @@ export const addPopupElement = (): void => {
   popupDiv.innerHTML = `
     <div>
       <span id="custom-popup-text" style="font-family: Arial; font-weight: normal; font-style: normal;">Hi, I'm Rene your virtual server. What can I get started for you?</span>
-      <div class="disclaimer-text">By providing your phone number, you agree to receive transactional SMS messages, including a payment link, from orderchat.pro</div>
+      <div class="disclaimer-text">By checking this box, you agree to receive promotional SMS messages from OrderChat.pro. This is optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.</div>
     </div>
     <button id="custom-popup-close">&times;</button>
   `;

@@ -65,7 +65,7 @@ export function OptInForm() {
                   />
                 </FormControl>
                 <div className="text-sm leading-none text-white">
-                  I consent to receive automated transactional and promotional SMS messages from OrderChat.pro. Message frequency varies. Message & data rates may apply. Reply STOP to opt-out.
+                  By checking this box, you agree to receive promotional SMS messages from OrderChat.pro. This is optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.
                 </div>
               </FormItem>
             )}
