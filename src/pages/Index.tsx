@@ -14,16 +14,17 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
+import { OptInForm } from '../components/OptInForm';
+
+const handlePhoneCall = () => {
+  window.location.href = 'tel:9122549970';
+};
+
+const handleGetStarted = () => {
+  window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
+};
 
 const Index = () => {
-  const handlePhoneCall = () => {
-    window.location.href = 'tel:9122549970';
-  };
-
-  const handleGetStarted = () => {
-    window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
-  };
-
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -204,6 +205,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Opt-In Form Section */}
+      <section className="py-24 bg-secondary">
+        <div className="container mx-auto px-4">
+          <OptInForm />
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-32 bg-secondary relative overflow-hidden">
         <div className="absolute inset-0 bg-grid opacity-20" />
@@ -220,6 +228,7 @@ const Index = () => {
           </button>
         </div>
       </section>
+      
       <ChatBubble />
     </div>
   );
