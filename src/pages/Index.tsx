@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
 import { OptInForm } from '../components/OptInForm';
+import Footer from '../components/Footer';  // Add this import
 
 const handlePhoneCall = () => {
   window.location.href = 'tel:9122549970';
@@ -230,6 +231,7 @@ const Index = () => {
       </section>
       
       <ChatBubble />
+      <Footer />  {/* Add Footer component at the end of the page */}
     </div>
   );
 };
