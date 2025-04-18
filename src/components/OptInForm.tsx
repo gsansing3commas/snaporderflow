@@ -13,8 +13,7 @@ const formSchema = z.object({
     .min(10, "Phone number must be at least 10 digits")
     .max(15, "Phone number too long")
     .regex(/^\+?[1-9]\d{9,14}$/, "Please enter a valid phone number"),
-  consent: z.boolean()
-    .refine(val => val === true, "You must agree to receive messages")
+  marketingConsent: z.boolean().optional() // Making consent optional
 })
 
 export function OptInForm() {
@@ -22,7 +21,7 @@ export function OptInForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       phoneNumber: "",
-      consent: false,
+      marketingConsent: false,
     },
   })
 
@@ -55,13 +54,22 @@ export function OptInForm() {
                   />
                 </FormControl>
                 <FormMessage />
+                <p className="text-xs text-white/60 mt-1">
+                  Your phone number will be used only for service-related communications necessary for using OrderChat.
+                </p>
               </FormItem>
             )}
           />
           
+          <div className="border-t border-white/10 my-6"></div>
+          
+          <div className="text-sm text-white/80 mb-4">
+            Optional Marketing Communications
+          </div>
+          
           <FormField
             control={form.control}
-            name="consent"
+            name="marketingConsent"
             render={({ field }) => (
               <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                 <FormControl>
@@ -71,14 +79,14 @@ export function OptInForm() {
                   />
                 </FormControl>
                 <div className="text-sm leading-none text-white">
-                  By checking this box, you agree to receive promotional SMS messages from OrderChat. This is optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.
+                  By checking this box, you agree to receive promotional SMS messages from OrderChat. This is completely optional and not required to use our services. Message and data rates may apply. Reply STOP to opt out.
                 </div>
               </FormItem>
             )}
           />
           
           <div className="text-xs text-white/60 mt-2">
-            OrderChat will use the information you provide on this form to be in touch with you and to provide updates and marketing. By submitting this form, you consent to receiving SMS messages from OrderChat at the number provided.
+            If you opt in, OrderChat will use your phone number to send you updates and marketing messages. You can opt out at any time by replying STOP.
           </div>
           
           <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
