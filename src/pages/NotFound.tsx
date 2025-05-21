@@ -1,8 +1,11 @@
-import { useLocation } from "react-router-dom";
+
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { HomeIcon } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.error(
@@ -11,14 +14,33 @@ const NotFound = () => {
     );
   }, [location.pathname]);
 
+  const handleGoHome = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-secondary">
+      <div className="text-center max-w-md px-6 py-12 glass-card rounded-lg">
+        <div className="mb-6">
+          <h1 className="text-6xl font-bold text-primary mb-2">404</h1>
+          <div className="h-1 w-20 bg-primary mx-auto mb-6"></div>
+          <h2 className="text-2xl text-white mb-4">Page Not Found</h2>
+          <p className="text-gray-300 mb-8">
+            The page you're looking for doesn't exist or has been moved.
+            {location.pathname && (
+              <span className="block mt-2 text-sm bg-black/30 p-2 rounded">
+                Path: {location.pathname}
+              </span>
+            )}
+          </p>
+        </div>
+        <button
+          onClick={handleGoHome}
+          className="btn-primary group flex items-center mx-auto"
+        >
+          <HomeIcon className="w-5 h-5 mr-2" />
           Return to Home
-        </a>
+        </button>
       </div>
     </div>
   );
