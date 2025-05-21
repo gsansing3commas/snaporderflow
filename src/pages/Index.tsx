@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Languages, 
@@ -169,7 +170,7 @@ const Index = () => {
               </div>
               <h3 className="text-2xl font-bold mb-2 text-center">Rush Hour Rescue</h3>
               <p className="stats-number text-center">10x</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Handle more lunch rush orders at once</p>
+              <p className="text-gray-300 text-center text-sm mt-2">Handle more rush time orders at once</p>
             </div>
           </div>
           
