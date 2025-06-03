@@ -16,7 +16,8 @@ import {
 } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
 import { OptInForm } from '../components/OptInForm';
-import Footer from '../components/Footer';  // Add this import
+import { ProfitCalculator } from '../components/ProfitCalculator';
+import Footer from '../components/Footer';
 
 const handlePhoneCall = () => {
   window.location.href = 'tel:9122549970';
@@ -191,6 +192,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Profit Calculator Section */}
+      <ProfitCalculator />
+
       {/* Communication Channels */}
       <section className="py-16 bg-secondary">
         <div className="container mx-auto px-4 text-center">
@@ -232,7 +236,7 @@ const Index = () => {
       </section>
       
       <ChatBubble />
-      <Footer />  {/* Add Footer component at the end of the page */}
+      <Footer />
     </div>
   );
 };
