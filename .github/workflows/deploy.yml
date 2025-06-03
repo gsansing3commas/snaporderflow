@@ -9,6 +9,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
       pages: write
@@ -21,12 +24,20 @@ jobs:
           node-version: '18'
           cache: 'npm'
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: other
+
       - run: npm ci
 
       - run: npm run build
 
       - name: Copy index.html to 404.html
         run: cp dist/index.html dist/404.html
+
+      - name: Setup custom domain
+        run: echo "orderchat.pro" > dist/CNAME
 
       - name: Debug build output
         run: |
@@ -36,11 +47,14 @@ jobs:
           ls -la dist/
           echo "Checking if index.html exists..."
           cat dist/index.html | head -20
+          echo "Checking CNAME file..."
+          cat dist/CNAME
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          cname: orderchat.pro
-          force_orphan: true
+        id: deployment
+        uses: actions/deploy-pages@v4
