@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Languages, 
@@ -26,11 +27,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-black">
+      <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 hero-gradient opacity-90" />
         <div className="absolute inset-0 bg-grid" />
         
-        <div className="container relative mx-auto px-4 py-20 text-center">
+        <div className="container relative mx-auto px-4 py-16 text-center">
           <div className="space-y-8 animate-fade-up">
             <h1 className="text-5xl md:text-7xl text-white font-bold leading-tight">
               AI-Powered Order Taking
