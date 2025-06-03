@@ -25,7 +25,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-black">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 hero-gradient opacity-90" />
         <div className="absolute inset-0 bg-grid" />
         
@@ -195,23 +195,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-32 bg-secondary relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="container relative mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-            Ready to Transform Your <br />Customer Experience?
-          </h2>
-          <button 
-            className="btn-primary text-lg group"
-            onClick={handleGetStarted}
-          >
-            Get Started
-            <Zap className="inline-block ml-2 w-5 h-5 group-hover:animate-pulse" />
-          </button>
         </div>
       </section>
       
