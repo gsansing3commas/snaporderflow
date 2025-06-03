@@ -10,7 +10,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 // Use basename only in production
-const basename = import.meta.env.PROD ? "/snaporderflow" : undefined;
+const basename = import.meta.env.PROD ? "/snaporderflow" : "";
 
 console.log("App.tsx - Environment:", import.meta.env.MODE);
 console.log("App.tsx - Is Production:", import.meta.env.PROD);
@@ -25,7 +25,7 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={basename}>
+        <BrowserRouter basename={basename || undefined}>
           <Routes>
             <Route path="/" element={<Index />} />
             {/* Redirect any ./ path to root */}
