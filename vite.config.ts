@@ -6,8 +6,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Set base path for GitHub Pages deployment - must match repository name
-  base: mode === 'production' ? '/snaporderflow/' : '/',
+  // For custom domain, use root path
+  base: '/',
   server: {
     host: "::",
     port: 8080,

@@ -9,8 +9,8 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Use basename only in production - must match vite.config.ts base
-const basename = import.meta.env.PROD ? "/snaporderflow" : "";
+// For custom domain, use root path
+const basename = "";
 
 console.log("=== APP.TSX DEBUG INFO ===");
 console.log("App.tsx - Environment:", import.meta.env.MODE);
