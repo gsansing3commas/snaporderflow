@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// Use basename only in production
+// Use basename only in production - must match vite.config.ts base
 const basename = import.meta.env.PROD ? "/snaporderflow" : "";
 
 console.log("=== APP.TSX DEBUG INFO ===");
@@ -30,12 +30,9 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename={basename || undefined}>
+        <BrowserRouter basename={basename}>
           <Routes>
             <Route path="/" element={<Index />} />
-            {/* Redirect any ./ path to root */}
-            <Route path="/." element={<Navigate to="/" replace />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
