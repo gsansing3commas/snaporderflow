@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Languages, 
@@ -18,10 +17,6 @@ import ChatBubble from '../components/ChatBubble';
 import { OptInForm } from '../components/OptInForm';
 import { ProfitCalculator } from '../components/ProfitCalculator';
 import Footer from '../components/Footer';
-
-const handlePhoneCall = () => {
-  window.location.href = 'tel:9122549970';
-};
 
 const handleGetStarted = () => {
   window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
@@ -43,16 +38,12 @@ const Index = () => {
                 Streamline Your Customer Experience with Smart, Efficient Service
               </span>
             </h1>
-            <button 
-              className="btn-primary group"
-              onClick={handlePhoneCall}
-            >
-              Tap to Try AI Ordering!
-              <Phone className="inline-block ml-2 w-5 h-5 group-hover:animate-pulse" />
-            </button>
           </div>
         </div>
       </section>
+
+      {/* Profit Calculator Section - Moved to top */}
+      <ProfitCalculator />
       
       {/* Features Grid */}
       <section className="py-24 bg-gradient-to-b from-black to-secondary">
@@ -191,9 +182,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Profit Calculator Section */}
-      <ProfitCalculator />
 
       {/* Communication Channels */}
       <section className="py-16 bg-secondary">
