@@ -12,13 +12,18 @@ const queryClient = new QueryClient();
 // Use basename only in production
 const basename = import.meta.env.PROD ? "/snaporderflow" : "";
 
+console.log("=== APP.TSX DEBUG INFO ===");
 console.log("App.tsx - Environment:", import.meta.env.MODE);
 console.log("App.tsx - Is Production:", import.meta.env.PROD);
 console.log("App.tsx - Basename:", basename);
 console.log("App.tsx - Current URL:", window.location.href);
+console.log("App.tsx - Current pathname:", window.location.pathname);
+console.log("App.tsx - Current search:", window.location.search);
+console.log("App.tsx - Current hash:", window.location.hash);
 
 const App = () => {
-  console.log("App component rendering");
+  console.log("=== APP COMPONENT RENDERING ===");
+  console.log("App component is rendering now");
   
   return (
     <QueryClientProvider client={queryClient}>
