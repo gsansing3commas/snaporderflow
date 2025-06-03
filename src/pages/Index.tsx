@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Languages, 
@@ -22,6 +23,8 @@ const handleGetStarted = () => {
 };
 
 const Index = () => {
+  console.log("Index component rendering");
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
