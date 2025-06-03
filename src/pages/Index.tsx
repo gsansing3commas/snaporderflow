@@ -28,10 +28,6 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
-      <div style={{ padding: '20px', background: 'red', color: 'white', fontSize: '24px' }}>
-        DEBUG: If you can see this red text, the Index component is rendering!
-      </div>
-      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 hero-gradient opacity-90" />
