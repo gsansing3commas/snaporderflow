@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Languages, 
@@ -15,7 +14,6 @@ import {
   HeartHandshake
 } from 'lucide-react';
 import ChatBubble from '../components/ChatBubble';
-import { OptInForm } from '../components/OptInForm';
 import { ProfitCalculator } from '../components/ProfitCalculator';
 import Footer from '../components/Footer';
 
@@ -197,13 +195,6 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Opt-In Form Section */}
-      <section className="py-24 bg-secondary">
-        <div className="container mx-auto px-4">
-          <OptInForm />
         </div>
       </section>
 
