@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/snaporderflow">
         <Routes>
           <Route path="/" element={<Index />} />
           {/* Redirect any ./ path to root */}
