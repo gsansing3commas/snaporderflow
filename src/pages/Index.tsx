@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Languages, 
@@ -16,6 +17,7 @@ import {
 import ChatBubble from '../components/ChatBubble';
 import { ProfitCalculator } from '../components/ProfitCalculator';
 import Footer from '../components/Footer';
+import Navigation from '../components/Navigation';
 
 const handleGetStarted = () => {
   window.open('https://www.paypal.com/ncp/payment/UF3DQG9FZ7YJJ', '_blank');
@@ -28,6 +30,8 @@ const Index = () => {
   
   return (
     <div className="min-h-screen">
+      <Navigation />
+      
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-black">
         <div className="absolute inset-0 hero-gradient opacity-90" />
