@@ -32,7 +32,7 @@ const Navigation = () => {
             </TabsTrigger>
             <TabsTrigger 
               value="contact" 
-              className="flex items-center gap-2 text-white/70 hover:text-white data-[state=active]=text-primary data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none h-full"
+              className="flex items-center gap-2 text-white/70 hover:text-white data-[state=active]:text-primary data-[state=active]:bg-transparent data-[state=active]:border-b-2 data-[state=active]:border-primary rounded-none h-full"
             >
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">Contact</span>
@@ -122,7 +122,7 @@ const Navigation = () => {
                           <div className="zf-tempContDiv zf-topAlign">
                             <label className="zf-labelName">Primary Challenges</label>
                             <div className="zf-tempContDiv zf-large">
-                              <textarea placeholder="Describe your current challenges with order taking..." rows="4" className="zf-form-field"></textarea>
+                              <textarea placeholder="Describe your current challenges with order taking..." className="zf-form-field"></textarea>
                             </div>
                           </div>
                         </div>
