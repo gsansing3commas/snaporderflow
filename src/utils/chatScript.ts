@@ -26,7 +26,7 @@ export const loadChatScript = (setupCallback: () => void): void => {
   scriptTag.onload = () => {
     console.log('Chat plugin script loaded');
     
-    // Wait for window.ktt10 to be available
+    // Wait for window.ktt10 to be available with faster polling
     const checkKtt10 = setInterval(() => {
       if (typeof window.ktt10 !== 'undefined') {
         clearInterval(checkKtt10);
@@ -48,7 +48,7 @@ export const loadChatScript = (setupCallback: () => void): void => {
           console.error('Error setting up ktt10:', err);
         }
       }
-    }, 500);
+    }, 100);
   };
   
   scriptTag.onerror = (err) => {

@@ -30,8 +30,8 @@ const ChatBubble = () => {
       });
     };
     
-    // Initialize with a small delay to ensure DOM is ready
-    setTimeout(initializeChat, 100);
+    // Initialize immediately
+    initializeChat();
     
     return () => {
       console.log('ChatBubble component unmounting');
