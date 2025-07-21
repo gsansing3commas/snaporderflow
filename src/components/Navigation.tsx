@@ -51,7 +51,7 @@ const Navigation = () => {
                     
                     <div className="w-full">
                       <iframe 
-                        src="https://forms.zohopublic.com/southernstarbusinesssolution1/form/OrderChatCustomerIntake/formperma/LEb4onSHvWKDxTjb1-ND2PZ3ybWbS30KRwIOtcK7l18"
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSekLGoFQbkGpuCeH0hA_POd5OxYufgnrgn-EotrsihDpyJiFw/viewform?embedded=true"
                         width="100%"
                         height="800"
                         frameBorder="0"
