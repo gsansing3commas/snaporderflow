@@ -39,6 +39,82 @@ const Navigation = () => {
             </TabsTrigger>
           </TabsList>
 
+          <TabsContent value="reviews" className="mt-0">
+            <div className="min-h-screen bg-gradient-to-br from-black to-primary-dark">
+              <div className="container mx-auto px-4 py-20">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                    What Our Clients Say
+                  </h2>
+                  <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                    Real businesses are boosting sales, saving time, and capturing missed orders with OrderChat.
+                  </p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[
+                    {
+                      text: "Our missed calls went from constant frustration to almost zero. The system just picks them up and books orders.",
+                      author: "Local Pizzeria, NY"
+                    },
+                    {
+                      text: "Customers love that they can reach us on Facebook, Instagram, or text and still get the same fast response.",
+                      author: "Deli Owner, Chicago"
+                    },
+                    {
+                      text: "We didn't realize how much money was slipping through the cracks until this chat captured 95% of calls we were missing.",
+                      author: "Sandwich Shop, Florida"
+                    },
+                    {
+                      text: "The upsell prompts alone paid for the system in a week. Average order size jumped immediately.",
+                      author: "Burger Joint, Texas"
+                    },
+                    {
+                      text: "We save hours a day not chasing voicemails. Everything is logged and confirmed automatically.",
+                      author: "Cafe Owner, California"
+                    },
+                    {
+                      text: "The broadcast feature makes social posting effortless. Our IG stays active without me touching it.",
+                      author: "Bakery, Washington DC"
+                    },
+                    {
+                      text: "Being able to answer via SMS or Instagram is huge. Customers don't even need to call anymore.",
+                      author: "Juice Bar, Miami"
+                    },
+                    {
+                      text: "Fast install, no training needed. Staff just picked it up and ran with it.",
+                      author: "Coffee Shop, Seattle"
+                    },
+                    {
+                      text: "Call volume dropped, orders went up. Customers love chatting instead of waiting on hold.",
+                      author: "Food Truck, Austin"
+                    },
+                    {
+                      text: "Customers don't fall through the cracks anymore. We finally feel on top of everything.",
+                      author: "Family Diner, Ohio"
+                    },
+                    {
+                      text: "Order accuracy improved overnight. Fewer mistakes, happier customers.",
+                      author: "Grill House, Boston"
+                    },
+                    {
+                      text: "Finally, a system that works across phone, webchat, and socials without costing a fortune.",
+                      author: "Restaurant, Denver"
+                    }
+                  ].map((testimonial, index) => (
+                    <div 
+                      key={index}
+                      className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+                    >
+                      <div className="text-primary text-xl mb-3">★★★★★</div>
+                      <p className="text-gray-800 text-lg mb-4 leading-relaxed">"{testimonial.text}"</p>
+                      <p className="text-sm font-semibold text-gray-600">— {testimonial.author}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </TabsContent>
+
           <TabsContent value="customer-intake" className="mt-0">
             <div className="min-h-screen bg-black">
               <div className="container mx-auto px-4 py-8">

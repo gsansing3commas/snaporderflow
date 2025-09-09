@@ -108,84 +108,77 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-24 bg-secondary">
-        <div className="container mx-auto px-4 mb-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Why Choose Us</h2>
-            <div className="h-1 w-24 bg-gradient-to-r from-primary to-purple-600 mx-auto"></div>
-            <p className="text-xl text-gray-300 mt-4 max-w-2xl mx-auto">
-              Our AI-powered order system delivers real results for food service businesses
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-br from-black to-primary-dark">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              Real businesses are boosting sales, saving time, and capturing missed orders with OrderChat.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Cost Savings */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-400/20 to-emerald-600/20 flex items-center justify-center">
-                  <DollarSign className="w-10 h-10 text-green-400 group-hover:animate-float" />
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                text: "Our missed calls went from constant frustration to almost zero. The system just picks them up and books orders.",
+                author: "Local Pizzeria, NY"
+              },
+              {
+                text: "Customers love that they can reach us on Facebook, Instagram, or text and still get the same fast response.",
+                author: "Deli Owner, Chicago"
+              },
+              {
+                text: "We didn't realize how much money was slipping through the cracks until this chat captured 95% of calls we were missing.",
+                author: "Sandwich Shop, Florida"
+              },
+              {
+                text: "The upsell prompts alone paid for the system in a week. Average order size jumped immediately.",
+                author: "Burger Joint, Texas"
+              },
+              {
+                text: "We save hours a day not chasing voicemails. Everything is logged and confirmed automatically.",
+                author: "Cafe Owner, California"
+              },
+              {
+                text: "The broadcast feature makes social posting effortless. Our IG stays active without me touching it.",
+                author: "Bakery, Washington DC"
+              },
+              {
+                text: "Being able to answer via SMS or Instagram is huge. Customers don't even need to call anymore.",
+                author: "Juice Bar, Miami"
+              },
+              {
+                text: "Fast install, no training needed. Staff just picked it up and ran with it.",
+                author: "Coffee Shop, Seattle"
+              },
+              {
+                text: "Call volume dropped, orders went up. Customers love chatting instead of waiting on hold.",
+                author: "Food Truck, Austin"
+              },
+              {
+                text: "Customers don't fall through the cracks anymore. We finally feel on top of everything.",
+                author: "Family Diner, Ohio"
+              },
+              {
+                text: "Order accuracy improved overnight. Fewer mistakes, happier customers.",
+                author: "Grill House, Boston"
+              },
+              {
+                text: "Finally, a system that works across phone, webchat, and socials without costing a fortune.",
+                author: "Restaurant, Denver"
+              }
+            ].map((testimonial, index) => (
+              <div 
+                key={index}
+                className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
+              >
+                <div className="text-primary text-xl mb-3">★★★★★</div>
+                <p className="text-gray-800 text-lg mb-4 leading-relaxed">"{testimonial.text}"</p>
+                <p className="text-sm font-semibold text-gray-600">— {testimonial.author}</p>
               </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Cost Savings</h3>
-              <p className="stats-number text-center">35%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Cut order-taking costs with 24/7 bot service</p>
-            </div>
-            
-            {/* Upsell */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-orange-400 to-red-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-400/20 to-red-600/20 flex items-center justify-center">
-                  <Pizza className="w-10 h-10 text-orange-400 group-hover:animate-spin-slow" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Upsell</h3>
-              <p className="stats-number text-center">20%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Increase ticket sizes with smart suggestions</p>
-            </div>
-            
-            {/* Speed */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-400/20 to-indigo-600/20 flex items-center justify-center">
-                  <Clock className="w-10 h-10 text-blue-400 group-hover:animate-spin-slow" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Speed</h3>
-              <p className="stats-number text-center">50%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Slash order wait times with instant processing</p>
-            </div>
-            
-            {/* Rush Hour */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-400/20 to-yellow-600/20 flex items-center justify-center">
-                  <ShoppingCart className="w-10 h-10 text-amber-400 group-hover:animate-bounce" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Rush Hour Rescue</h3>
-              <p className="stats-number text-center">10x</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Handle more rush time orders at once</p>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8 mt-8">
-            {/* Guest Delight */}
-            <div className="glass-card p-6 hover:scale-105 transition-all duration-500 group overflow-hidden relative max-w-md mx-auto">
-              <div className="absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br from-pink-400 to-rose-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all"></div>
-              <div className="flex justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-400/20 to-rose-600/20 flex items-center justify-center">
-                  <HeartHandshake className="w-10 h-10 text-pink-400 group-hover:animate-pulse" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold mb-2 text-center">Guest Delight</h3>
-              <p className="stats-number text-center">40%</p>
-              <p className="text-gray-300 text-center text-sm mt-2">Higher satisfaction with accurate ordering</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
